@@ -270,7 +270,7 @@ namespace hicbit {
     /**
     *	Set the speed of the number 1 motor and number 2 motor, range of -255~255, that can control turn.
     */
-    //% weight=94 blockGap=50 blockId=hicbit_setMotorSpeed1 block="Set motor1 speed|%speed1|and motor2|speed %speed2and|time(s) %time|"
+    //% weight=94 blockGap=50 blockId=hicbit_setMotorSpeed1 block="Set motor1|speed %speed1|and motor2|speed %speed2|and|time(s) %time|"
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
     //% time.min=0 time.max=20 
@@ -385,7 +385,7 @@ namespace hicbit {
     /**
     *	Set the speed of the number 3 motor and number 4 motor, range of -255~255, that can control turn.
     */
-    //% weight=91 blockGap=50 blockId=hicbit_setMotorSpeed2 block="Set motor3 speed|%speed1|and motor4|speed %speed2and|time(s) %time|"
+    //% weight=91 blockGap=50 blockId=hicbit_setMotorSpeed2 block="Set motor3 speed|%speed1|and motor4|speed %speed2|and|time(s) %time|"
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
     //% time.min=0 time.max=20 
@@ -878,11 +878,14 @@ namespace Sensor{
     /**
 	 * Set Light belt
 	 */
-    //% weight=85 blockId=hicbit_setPixelRGB block="Set light belt at |port %port| and |%lightoffset|color to |red %red|,|green %green|,|blue %blue|"
+    //% weight=85 blockId=hicbit_setPixelRGB block="Set light belt at |port %port| and |%lightoffset|color to |red %red||green %green||blue %blue|"
     //% red.min=0 red.max=255
     //% green.min=0 green.max=255
     //% blue.min=0 blue.max=255
     export function hicbit_setPixelRGB(port: hicbit_Port, lightoffset: hicbitLightsBelt, red: number, green: number, blue: number) {
+        let r: number=0;
+        let g: number=0;
+        let b: number=0;
         switch (port) {
             case hicbit_Port.port1:
                 if (!lhRGBLight) {
@@ -905,17 +908,20 @@ namespace Sensor{
                 }
                 break;
         }
+        r = red;
+        g = green;
+        b = blue;
         // hicbit_clearLight();
         if (lightoffset == this._length)//全部
         {
             for (let i = 0; i < this._length; i++)
             {
-                this.setBufferRGB(i, red, green, blue);     
+                this.setBufferRGB(i, r, g, b);     
             }
         }
         else
         {
-            this.setBufferRGB(lightoffset, red, green, blue); 
+            this.setBufferRGB(lightoffset, r, g, b); 
         }
 
     }
