@@ -2,7 +2,7 @@
 /*
  hicbit package
 */
-//% weight=10 icon="\uf631" color=#5F9EA0
+//% weight=10 icon="\uf180" color=#5F9EA0
 namespace hicbit {
 
     export let NEW_LINE = "\r\n";
