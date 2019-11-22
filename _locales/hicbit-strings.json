@@ -76,7 +76,7 @@
   "Sensor.hicbit_lineSensorValue|block": "Get line follower sensor Value|port %port|value(0~255)",
   "Sensor.hicbit_onQdee_remote_ir_pressed|block": "on remote-control|%code|pressed",
   "Sensor.hicbit_photosensitiveSensor|block": "Photosensitive sensor|port %port|detect bright",
-  "Sensor.hicbit_setPixelRGB|block": "Set light belt at |port %port| and |%lightoffset|color to |red %red||green %green||blue %blue|",
+  "Sensor.hicbit_setPixelRGB|block": "Set light belt at |port %port| and |%lightoffset|color to |red %red|and|green %green|and|blue %blue|",
   "Sensor.hicbit_ultrasonic|block": "Ultrasonic|port %port|distance(cm)",
   "Sensor|block": "Sensor",
   "hicbit.hicbit_Colors.Black|block": "Black",

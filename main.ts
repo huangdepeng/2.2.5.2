@@ -878,14 +878,11 @@ namespace Sensor{
     /**
 	 * Set Light belt
 	 */
-    //% weight=85 blockId=hicbit_setPixelRGB block="Set light belt at |port %port| and |%lightoffset|color to |red %red||green %green||blue %blue|"
+    //% weight=85 blockId=hicbit_setPixelRGB block="Set light belt at |port %port| and |%lightoffset|color to |red %red|and|green %green|and|blue %blue|"
     //% red.min=0 red.max=255
     //% green.min=0 green.max=255
     //% blue.min=0 blue.max=255
     export function hicbit_setPixelRGB(port: hicbit_Port, lightoffset: hicbitLightsBelt, red: number, green: number, blue: number) {
-        let r: number=0;
-        let g: number=0;
-        let b: number=0;
         switch (port) {
             case hicbit_Port.port1:
                 if (!lhRGBLight) {
@@ -908,20 +905,17 @@ namespace Sensor{
                 }
                 break;
         }
-        r = red;
-        g = green;
-        b = blue;
         // hicbit_clearLight();
         if (lightoffset == this._length)//全部
         {
             for (let i = 0; i < this._length; i++)
             {
-                this.setBufferRGB(i, r, g, b);     
+                this.setBufferRGB(i, red, green, blue);     
             }
         }
         else
         {
-            this.setBufferRGB(lightoffset, r, g, b); 
+            this.setBufferRGB(lightoffset, red, green, blue); 
         }
 
     }
