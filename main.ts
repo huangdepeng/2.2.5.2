@@ -2,7 +2,7 @@
 /*
  hicbit package
 */
-//% weight=10 icon="\uf634" color=#5F9EA0
+//% weight=10 icon="\uf631" color=#5F9EA0
 namespace hicbit {
 
     export let NEW_LINE = "\r\n";
@@ -37,7 +37,7 @@ namespace hicbit {
     /**
      * hicbit initialization, please execute at boot time
     */
-    //% weight=100 blockId=hicbit_Init block="Initialize hicbit"
+    //% weight=100 blockGap=50 blockId=hicbit_Init block="Initialize hicbit"
     export function hicbit_Init() {
 
         led.enable(false);
@@ -67,7 +67,7 @@ namespace hicbit {
     /**
     *	Set interface motor speed , range of -255~255, that can control turn.
     */
-    //% weight=99 blockGap=50 blockId=hicbit_setMotorSpeed0 block="Set |port %port| motor|speed %speed|"
+    //% weight=99 blockId=hicbit_setMotorSpeed0 block="Set |port %port| motor|speed %speed|"
     //% speed.min=-255 speed.max=255 
     export function hicbit_setMotorSpeed0(port: hicbit_Port,speed: number) {
         let Turn: number = 0;//电机1：正 电机2：正
@@ -141,7 +141,7 @@ namespace hicbit {
     /**
     *	Set interface motor speed , range of -255~255, that can control turn.
     */
-    //% weight=97 blockId=hicbit_setMotorSpeed block="Set |port %port| motor|speed %speed|and|time(s) %time|"
+    //% weight=97 blockGap=50 blockId=hicbit_setMotorSpeed block="Set |port %port| motor|speed %speed|and|time(s) %time|"
     //% speed.min=-255 speed.max=255 
     //% time.min=0 time.max=20 
     export function hicbit_setMotorSpeed(port: hicbit_Port,speed: number,time:number) {
@@ -211,7 +211,7 @@ namespace hicbit {
     /**
     *	Set the speed of the number 1 motor and number 2 motor, range of -255~255, that can control turn.
     */
-    //% weight=96 blockGap=50 blockId=hicbit_setMotorSpeed11 block="Set motor1 |speed %speed1|and motor2|speed %speed2|"
+    //% weight=96 blockId=hicbit_setMotorSpeed11 block="Set motor1 |speed %speed1|and motor2|speed %speed2|"
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
     export function hicbit_setMotorSpeed11(speed1: number, speed2: number) {
@@ -270,7 +270,7 @@ namespace hicbit {
     /**
     *	Set the speed of the number 1 motor and number 2 motor, range of -255~255, that can control turn.
     */
-    //% weight=94 blockId=hicbit_setMotorSpeed1 block="Set motor1|speed %speed1|and motor2|speed %speed2|and|time(s) %time|"
+    //% weight=94 blockGap=50 blockId=hicbit_setMotorSpeed1 block="Set motor1|speed %speed1|and motor2|speed %speed2|and|time(s) %time|"
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
     //% time.min=0 time.max=20 
@@ -326,7 +326,7 @@ namespace hicbit {
     /**
     *	Set the speed of the number 3 motor and number 4 motor, range of -255~255, that can control turn.
     */
-    //% weight=93 blockGap=50 blockId=hicbit_setMotorSpeed22 block="Set motor3 |speed %speed1|and motor4|speed %speed2|"
+    //% weight=93 blockId=hicbit_setMotorSpeed22 block="Set motor3 |speed %speed1|and motor4|speed %speed2|"
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
     export function hicbit_setMotorSpeed22(speed1: number, speed2: number) {
@@ -385,7 +385,7 @@ namespace hicbit {
     /**
     *	Set the speed of the number 3 motor and number 4 motor, range of -255~255, that can control turn.
     */
-    //% weight=91 blockId=hicbit_setMotorSpeed2 block="Set motor3 speed|%speed1|and motor4|speed %speed2|and|time(s) %time|"
+    //% weight=91 blockGap=50 blockId=hicbit_setMotorSpeed2 block="Set motor3 speed|%speed1|and motor4|speed %speed2|and|time(s) %time|"
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
     //% time.min=0 time.max=20 
@@ -444,8 +444,8 @@ namespace hicbit {
 /*
  Sensor package
 */
-//% weight=9 icon="\uf2db" color=#B3EE3A
-namespace Sensor{
+//% weight=9 icon="\uf2db" color=#8470FF
+namespace Sensor {
     
     export enum hicbit_Port {
         //% block="port 1"
@@ -1066,7 +1066,7 @@ namespace Sensor{
  Display package
 */
 //% weight=8 icon="\uf108" color=#76EE00
-namespace Display{
+namespace Display {
 
     export let NEW_LINE = "\r\n";
 
