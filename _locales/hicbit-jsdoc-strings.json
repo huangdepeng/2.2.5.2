@@ -1,6 +1,5 @@
 {
   "Display.Clearscreen": "Display clear",
-  "Display.Hicbit_Display_Init": "Display initialization, please execute at boot time",
   "Display.setDisplay": "Display ultrasonic distance",
   "Sensor.hicbit_Rocker": "Determine the direction of remote sensing.",
   "Sensor.hicbit_SoundSensor": "Set the Sound sensor status,1 detect the sound source,0 no detect the sound source 声音",

@@ -2,7 +2,7 @@
 /*
  hicbit package
 */
-//% weight=10 icon="\uf211" color=#6A5ACD
+//% weight=10 icon="\uf634" color=#5F9EA0
 namespace hicbit {
 
     export let NEW_LINE = "\r\n";
@@ -123,7 +123,7 @@ namespace hicbit {
     /**
     *	Stop motor.
     */
-    //% weight=98 blockGap=50 blockId=hicbit_StopMotor block="Set |port %port| motor stop"
+    //% weight=98 blockId=hicbit_StopMotor block="Set |port %port| motor stop"
     export function hicbit_StopMotor(port: hicbit_Port) {
         let buf = pins.createBuffer(5);
 
@@ -141,7 +141,7 @@ namespace hicbit {
     /**
     *	Set interface motor speed , range of -255~255, that can control turn.
     */
-    //% weight=97 blockGap=50 blockId=hicbit_setMotorSpeed block="Set |port %port| motor|speed %speed|and|time(s) %time|"
+    //% weight=97 blockId=hicbit_setMotorSpeed block="Set |port %port| motor|speed %speed|and|time(s) %time|"
     //% speed.min=-255 speed.max=255 
     //% time.min=0 time.max=20 
     export function hicbit_setMotorSpeed(port: hicbit_Port,speed: number,time:number) {
@@ -253,7 +253,7 @@ namespace hicbit {
     /**
     *	Set the number 1 motor and number 2 motor stop.
     */
-    //% weight=95 blockGap=50 blockId=hicbit_setMotorstop1 block="Set motor1 and motor2 stop"
+    //% weight=95 blockId=hicbit_setMotorstop1 block="Set motor1 and motor2 stop"
     export function hicbit_setMotorstop1() {
         let buf = pins.createBuffer(5);
         buf[0] = 0x58;
@@ -270,7 +270,7 @@ namespace hicbit {
     /**
     *	Set the speed of the number 1 motor and number 2 motor, range of -255~255, that can control turn.
     */
-    //% weight=94 blockGap=50 blockId=hicbit_setMotorSpeed1 block="Set motor1|speed %speed1|and motor2|speed %speed2|and|time(s) %time|"
+    //% weight=94 blockId=hicbit_setMotorSpeed1 block="Set motor1|speed %speed1|and motor2|speed %speed2|and|time(s) %time|"
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
     //% time.min=0 time.max=20 
@@ -368,7 +368,7 @@ namespace hicbit {
     /**
     *	Set the number 3 motor and number 4 motor stop.
     */
-    //% weight=92 blockGap=50 blockId=hicbit_setMotorstop2 block="Set motor3 and motor4 stop"
+    //% weight=92 blockId=hicbit_setMotorstop2 block="Set motor3 and motor4 stop"
     export function hicbit_setMotorstop2() {
         let buf = pins.createBuffer(5);
         buf[0] = 0x58;
@@ -385,7 +385,7 @@ namespace hicbit {
     /**
     *	Set the speed of the number 3 motor and number 4 motor, range of -255~255, that can control turn.
     */
-    //% weight=91 blockGap=50 blockId=hicbit_setMotorSpeed2 block="Set motor3 speed|%speed1|and motor4|speed %speed2|and|time(s) %time|"
+    //% weight=91 blockId=hicbit_setMotorSpeed2 block="Set motor3 speed|%speed1|and motor4|speed %speed2|and|time(s) %time|"
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
     //% time.min=0 time.max=20 
@@ -444,7 +444,7 @@ namespace hicbit {
 /*
  Sensor package
 */
-//% weight=9 icon="\uf210" color=#666666
+//% weight=9 icon="\uf2db" color=#B3EE3A
 namespace Sensor{
     
     export enum hicbit_Port {
@@ -693,7 +693,7 @@ namespace Sensor{
     /**
     * Get the Photosensitive sensor status,1 detect bright,0 no detect bright 光敏
     */
-    //% weight=95 blockId=hicbit_photosensitiveSensor blockGap=50 block="Photosensitive sensor|port %port|detect bright"
+    //% weight=95 blockId=hicbit_photosensitiveSensor block="Photosensitive sensor|port %port|detect bright"
     export function hicbit_photosensitiveSensor(port: hicbit_Port): boolean {
         let status = 0;
         let flag: boolean = false;
@@ -879,6 +879,7 @@ namespace Sensor{
 	 * Set Light belt
 	 */
     //% weight=85 blockId=hicbit_setPixelRGB block="Set light belt at |port %port| and |%lightoffset|color to |red %red|and|green %green|and|blue %blue|"
+    //% inlineInputMode=inline
     //% red.min=0 red.max=255
     //% green.min=0 green.max=255
     //% blue.min=0 blue.max=255
@@ -1064,7 +1065,7 @@ namespace Sensor{
 /*
  Display package
 */
-//% weight=8 icon="\uf212" color=#CC3333
+//% weight=8 icon="\uf108" color=#76EE00
 namespace Display{
 
     export let NEW_LINE = "\r\n";
@@ -1105,23 +1106,11 @@ namespace Display{
         none = 0x07
     }
 
-    /**
-     * Display initialization, please execute at boot time
-    */
-    //% weight=100 blockId=Hicbit_Display_Init block="Initialize hicbit Display"
-    export function Hicbit_Display_Init() {
-        serial.redirect(
-            SerialPin.P8,
-            SerialPin.P12,
-            BaudRate.BaudRate115200);
-        basic.pause(1000);
-    }
-
 
     /**
         * Display clear
         */
-    //% weight=99 blockId=Clearscreen block="Clear screen"
+    //% weight=100 blockId=Clearscreen block="Clear screen"
     export function Clearscreen(): void {
         let buf = pins.createBuffer(1);
         buf[0] = 9;
@@ -1133,7 +1122,7 @@ namespace Display{
     /**
         * Display ultrasonic distance
         */
-    //% weight=98 blockId=setDisplay block="Display %line |text: %text | value: %value| unit1: %unit1"
+    //% weight=99 blockId=setDisplay block="Display %line |text: %text | value: %value| unit1: %unit1"
     export function setDisplay(line: Linenum, text: string, value: number = 0, unit1: unit): void {
         let num: number = 1;
         let text2: string = "   ";
